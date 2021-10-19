@@ -135,20 +135,17 @@ class Game {
       this.round++;
       this.playARound();
       this.checkWinner();
-      // console.log("in game", this.playerOne);
-      // console.log("ingame", this.playerTwo);
     }
-    console.log(this.winner.name, "wins!");
-    // console.log(this.playerOne);
-    // console.log(this.playerTwo);
+    console.log(this.winner, "wins!");
   }
 
   playARound(warCards = []) {
     const cardOne = this.playerOne.drawCard();
     const cardTwo = this.playerTwo.drawCard();
     if (cardOne && cardTwo) {
-      // warCards.push(cardOne);
-      // warCards.push(cardTwo);
+      this.moves.push(
+        `Round ${this.round} - ${cardOne.show()} vs ${cardTwo.show()}`
+      );
       console.log("Round", this.round, cardOne.show(), "vs", cardTwo.show());
 
       if (cardOne.value > cardTwo.value) {
@@ -169,15 +166,20 @@ class Game {
   checkWinner() {
     // console.log(this.playerOne.cards, this.playerTwo.cards);
     if (this.playerTwo.cards.length === 0) {
-      this.winner = this.playerOne;
+      this.winner = this.playerOne.name;
     } else if (this.playerOne.cards.length === 0) {
-      this.winner = this.playerTwo;
+      this.winner = this.playerTwo.name;
     }
   }
 }
 
-let playerOne = new Player("Mike");
-let playerTwo = new Player("Jo");
-let game = new Game();
-game.newGame(playerOne, playerTwo);
-game.startGame();
+const playGame = () => {
+  let playerOne = new Player("Mike");
+  let playerTwo = new Player("Jo");
+  let game = new Game();
+  game.newGame(playerOne, playerTwo);
+  game.startGame();
+  return game;
+};
+
+module.exports = playGame;

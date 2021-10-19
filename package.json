@@ -1,0 +1,24 @@
+{
+  "name": "war",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malessi5/gameofwar.git"
+  },
+  "author": "Michael Alessi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Malessi5/gameofwar/issues"
+  },
+  "homepage": "https://github.com/Malessi5/gameofwar#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0"
+  }
+}
