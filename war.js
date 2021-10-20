@@ -89,6 +89,7 @@ class Game {
     this.moves = [];
     this.deck = null;
     this.winner = null;
+    this.loser = null;
     this.round = 0;
   }
 
@@ -136,7 +137,7 @@ class Game {
       this.playARound();
       this.checkWinner();
     }
-    console.log(this.winner, "wins!");
+    console.log(this.winner, "wins!", this.loser, "loses!");
   }
 
   playARound(warCards = []) {
@@ -167,15 +168,17 @@ class Game {
     // console.log(this.playerOne.cards, this.playerTwo.cards);
     if (this.playerTwo.cards.length === 0) {
       this.winner = this.playerOne.name;
+      this.loser = this.playerTwo.name;
     } else if (this.playerOne.cards.length === 0) {
       this.winner = this.playerTwo.name;
+      this.loser = this.playerOne.name;
     }
   }
 }
 
-const playGame = () => {
-  let playerOne = new Player("Mike");
-  let playerTwo = new Player("Jo");
+const playGame = (pOne, pTwo) => {
+  let playerOne = new Player(pOne.name);
+  let playerTwo = new Player(pTwo.name);
   let game = new Game();
   game.newGame(playerOne, playerTwo);
   game.startGame();
