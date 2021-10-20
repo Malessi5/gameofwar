@@ -27,14 +27,14 @@ class Deck {
       "8",
       "9",
       "10",
-      "Jack",
-      "Queen",
-      "King",
-      "Ace",
+      "J",
+      "Q",
+      "K",
+      "A",
     ];
     // const allNums = ["2", "3", "4", "5", "6", "7"];
     const allValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
-    const allSuits = ["Hearts", "Diamonds", "Spades", "Clubs"];
+    const allSuits = ["hearts", "diamonds", "spades", "clubs"];
     for (let suit of allSuits) {
       for (let i = 0; i < allNums.length; i++) {
         this.add(new Card(suit, allNums[i], allValues[i]));
@@ -141,20 +141,18 @@ class Game {
     console.log(this.winner, "wins!", this.loser, "loses!");
   }
 
-  playARound(warCards = []) {
+  playARound(warCards = [], war = false) {
     const cardOne = this.playerOne.drawCard();
     const cardTwo = this.playerTwo.drawCard();
     if (cardOne && cardTwo) {
-      this.moves.push(
-        `Round ${this.round} - ${cardOne.cardName} vs ${cardTwo.cardName}`
+      this.moves.push({p1Card: cardOne, p2Card: cardTwo, war: war});
+      console.log(
+        "Round",
+        this.round,
+        cardOne.cardName,
+        "vs",
+        cardTwo.cardName
       );
-      // console.log(
-      //   "Round",
-      //   this.round,
-      //   cardOne.cardName,
-      //   "vs",
-      //   cardTwo.cardName
-      // );
 
       if (cardOne.value > cardTwo.value) {
         this.playerOne.addCards([...warCards, cardOne, cardTwo]);
@@ -166,7 +164,7 @@ class Game {
         warCards.push(cardTwo);
         warCards.push(this.playerOne.drawCard());
         warCards.push(this.playerTwo.drawCard());
-        this.playARound(warCards);
+        this.playARound(warCards, true);
       }
     }
   }
