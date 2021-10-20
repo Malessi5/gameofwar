@@ -52,6 +52,17 @@
   height: 50px;
   border-radius: 5px;
 }
+.turn-war {
+  background-color: red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  margin: 1.5px;
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+}
 
 img {
   /* max-width: 15px; */
@@ -61,4 +72,28 @@ img {
 p {
   font-size: 14px;
   margin: 0;
+}
+
+h2 {
+  margin: 5px;
+}
+
+h4 {
+  margin: 2px;
+}
+
+.score-container {
+  padding: 2px;
+  display: flex;
+  width: 70vw;
+  justify-content: space-evenly;
+  background-color: #4da1a9;
+}
+
+.score {
+  margin: 2px;
+}
+
+button {
+  margin-top: 15px;
 }

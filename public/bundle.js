@@ -2233,6 +2233,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var _GameInfo__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./GameInfo */ "./client/components/GameInfo.js");
+/* harmony import */ var _Wins__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Wins */ "./client/components/Wins.js");
+
 
 
 
@@ -2250,10 +2252,15 @@ function Main() {
       playerTwo = _useState4[0],
       setPlayerTwo = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(null),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(),
       _useState6 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState5, 2),
       gameInfo = _useState6[0],
       setGameInfo = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)([]),
+      _useState8 = (0,_babel_runtime_helpers_slicedToArray__WEBPACK_IMPORTED_MODULE_1__["default"])(_useState7, 2),
+      playerWins = _useState8[0],
+      setPlayerWins = _useState8[1];
 
   function simulate() {
     return _simulate.apply(this, arguments);
@@ -2288,9 +2295,48 @@ function Main() {
     return _simulate.apply(this, arguments);
   }
 
+  function fetchWins() {
+    return _fetchWins.apply(this, arguments);
+  }
+
+  function _fetchWins() {
+    _fetchWins = (0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__["default"])( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().mark(function _callee2() {
+      var _yield$axios$get2, wins;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_2___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_4___default().get("/api/players");
+
+            case 2:
+              _yield$axios$get2 = _context2.sent;
+              wins = _yield$axios$get2.data;
+              setPlayerWins(wins);
+              console.log(playerWins);
+
+            case 6:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+    return _fetchWins.apply(this, arguments);
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
+    fetchWins();
+  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
+    fetchWins();
+  }, [gameInfo]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
     className: "main"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h1", null, "War Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("button", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h1", null, "War Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_Wins__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    wins: playerWins
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("button", {
     type: "button",
     onClick: simulate
   }, "Simulate a game"), gameInfo && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
@@ -2321,13 +2367,51 @@ function Turn(props) {
   var cards = props.cards,
       turn = props.turn;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "turn"
-  }, cards.war ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "War!") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Round ", turn), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: cards.p1Card.value === cards.p2Card.value ? "turn-war" : "turn"
+  }, cards.war ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "War Round") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "Round ", turn), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "card-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     card: cards.p1Card
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Card__WEBPACK_IMPORTED_MODULE_1__["default"], {
     card: cards.p2Card
+  })));
+}
+
+/***/ }),
+
+/***/ "./client/components/Wins.js":
+/*!***********************************!*\
+  !*** ./client/components/Wins.js ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ Wins)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+function Wins(props) {
+  var wins = props.wins;
+  wins.sort(function (a, b) {
+    return b.totalWins - a.totalWins;
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    style: {
+      border: "black 1px solid"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+    style: {
+      textAlign: "center"
+    }
+  }, "Leaderboard"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "score-container"
+  }, wins.map(function (player, i) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      key: i,
+      className: "score"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("p", null, "".concat(i + 1, ". ").concat(player.name, " - ").concat(player.totalWins)));
   })));
 }
 
