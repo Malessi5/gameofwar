@@ -3,6 +3,7 @@ class Card {
     this.suit = suit;
     this.num = num;
     this.value = value;
+    this.cardName = `${this.num} of ${this.suit}`;
   }
 
   show() {
@@ -105,7 +106,7 @@ class Game {
     //Deal cards to each player
     this.dealCards(this.deck.cards);
 
-    console.log(this.playerOne, this.playerTwo);
+    // console.log(this.playerOne, this.playerTwo);
   }
 
   addPlayers(p1, p2) {
@@ -145,9 +146,15 @@ class Game {
     const cardTwo = this.playerTwo.drawCard();
     if (cardOne && cardTwo) {
       this.moves.push(
-        `Round ${this.round} - ${cardOne.show()} vs ${cardTwo.show()}`
+        `Round ${this.round} - ${cardOne.cardName} vs ${cardTwo.cardName}`
       );
-      console.log("Round", this.round, cardOne.show(), "vs", cardTwo.show());
+      // console.log(
+      //   "Round",
+      //   this.round,
+      //   cardOne.cardName,
+      //   "vs",
+      //   cardTwo.cardName
+      // );
 
       if (cardOne.value > cardTwo.value) {
         this.playerOne.addCards([...warCards, cardOne, cardTwo]);
@@ -185,4 +192,4 @@ const playGame = (pOne, pTwo) => {
   return game;
 };
 
-module.exports = playGame;
+module.exports = {playGame, Game, Player, Deck, Card};

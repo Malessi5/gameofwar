@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const playGame = require("../../war");
+const {playGame} = require("../../war");
 const Player = require("../db/models/Player");
 
 //Main War route
