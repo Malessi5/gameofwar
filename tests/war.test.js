@@ -50,7 +50,22 @@ test("When a game is completed, the losing player has no cards left", () => {
   const testGame = playGame(player1, player2);
 
   const loserDeck =
-    testGame.winner === player1.name ? player2.cards : player1.cards;
+    testGame.winner === testGame.playerOne.name
+      ? testGame.playerTwo.cards
+      : testGame.playerOne.cards;
 
   expect(loserDeck.length).toEqual(0);
+});
+
+test("When a game is completed, the winner's deck has all cards", () => {
+  const player1 = new Player("timmy");
+  const player2 = new Player("tommy");
+  const testGame = playGame(player1, player2);
+
+  const winnerDeck =
+    testGame.winner === testGame.playerOne.name
+      ? testGame.playerOne.cards
+      : testGame.playerTwo.cards;
+
+  expect(winnerDeck.length).toEqual(52);
 });
