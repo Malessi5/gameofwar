@@ -11,11 +11,12 @@ This project was created with:
 - React.js
 - Node.js
 
-The project was also deployed on Heroku and can be viewed here: https://simulate-game-of-war.herokuapp.com/
+This project was also deployed on Heroku and can be viewed here:
+https://simulate-game-of-war.herokuapp.com/
 
 ## Setup
 
-After cloning the repository and take the following steps:
+After cloning the repository and `cd war` take the following steps:
 
 - Create a local Postgres database
 
@@ -42,6 +43,12 @@ $ npm start
 ```
 
 - Go to `localhost:3000`
+
+## How To Play
+
+Well, you can't really play. But you can simulate two other people playing just by clicking the button!
+
+After every simulation ran, the leaderboard will update.
 
 ## General Info
 
