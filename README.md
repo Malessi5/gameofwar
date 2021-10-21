@@ -18,7 +18,7 @@ https://simulate-game-of-war.herokuapp.com/
 
 After cloning the repository and `cd war` take the following steps:
 
-- Create a local Postgres database
+- Create a local Postgres database called war
 
 ```
 $ createdb war
@@ -36,10 +36,10 @@ $ npm install
 $ npm run seed
 ```
 
-- Start the server
+- Start the server and build bundle.js
 
 ```
-$ npm start
+$ npm start-dev
 ```
 
 - Go to `localhost:3000`
@@ -57,6 +57,14 @@ Each time a simulation is run, the leaderboard will update the winner's total wi
 There are two API endpoints:
 
 - `GET /api/war/` will start a game between 2 random players from the database and return a completed game object.
+
+The game object will contain:
+
+- Both player objects which will include name and remaining cards.
+- moves: an array of every turn which include each card played.
+- winner: name of winner.
+- loser: name of loser
+- round: number of total rounds played.
 
 - `GET /api/players` will return the lifetime wins for each player stored in the database.
 
