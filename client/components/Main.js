@@ -31,10 +31,10 @@ export default function Main() {
 
   return (
     <div className='main'>
-      <h1>War Simulator</h1>
+      <h1>Game of War Simulator</h1>
       <Wins wins={playerWins} />
       <button type='button' onClick={simulate}>
-        Simulate a game
+        Simulate Game
       </button>
       {gameInfo && (
         <div>

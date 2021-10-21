@@ -6,7 +6,7 @@ export default function Wins(props) {
   wins.sort((a, b) => b.totalWins - a.totalWins);
 
   return (
-    <div style={{border: "black 1px solid"}}>
+    <div>
       <h4 style={{textAlign: "center"}}>Leaderboard</h4>
       <div className='score-container'>
         {wins.map((player, i) => {

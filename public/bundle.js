@@ -2283,9 +2283,8 @@ function Main() {
               setGameInfo(gameData);
               setPlayerOne(gameData.playerOne.name);
               setPlayerTwo(gameData.playerTwo.name);
-              console.log(gameData);
 
-            case 8:
+            case 7:
             case "end":
               return _context.stop();
           }
@@ -2314,9 +2313,8 @@ function Main() {
               _yield$axios$get2 = _context2.sent;
               wins = _yield$axios$get2.data;
               setPlayerWins(wins);
-              console.log(playerWins);
 
-            case 6:
+            case 5:
             case "end":
               return _context2.stop();
           }
@@ -2334,12 +2332,12 @@ function Main() {
   }, [gameInfo]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
     className: "main"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h1", null, "War Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_Wins__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h1", null, "Game of War Simulator"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_Wins__WEBPACK_IMPORTED_MODULE_6__["default"], {
     wins: playerWins
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("button", {
     type: "button",
     onClick: simulate
-  }, "Simulate a game"), gameInfo && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
+  }, "Simulate Game"), gameInfo && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
     className: "player-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h2", null, playerOne, " vs ", playerTwo), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h3", null, gameInfo.winner, " wins after ", gameInfo.moves.length + 1, " rounds!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_GameInfo__WEBPACK_IMPORTED_MODULE_5__["default"], {
     moves: gameInfo.moves
@@ -2397,11 +2395,7 @@ function Wins(props) {
   wins.sort(function (a, b) {
     return b.totalWins - a.totalWins;
   });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    style: {
-      border: "black 1px solid"
-    }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h4", {
     style: {
       textAlign: "center"
     }

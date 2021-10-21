@@ -48,7 +48,7 @@ $ npm start
 
 Well, you can't really play. But you can simulate two other people playing just by clicking the button!
 
-After every simulation ran, the leaderboard will update.
+Each time a simulation is run, the leaderboard will update the winner's total wins.
 
 ## General Info
 
