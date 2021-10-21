@@ -23,12 +23,5 @@ Player.prototype.addWin = async function () {
 Player.prototype.addLoss = async function () {
   this.update({totalGames: this.totalGames + 1});
 };
-// Player.prototype.getWins = async function () {
-//   return this.totalWins;
-// };
-
-// Player.getAllWins = async function(){
-//   return
-// }
 
 module.exports = Player;
