@@ -43,7 +43,7 @@ export default function Main() {
               {playerOne} vs {playerTwo}
             </h2>
             <h3>
-              {gameInfo.winner} wins after {gameInfo.moves.length + 1} rounds!
+              {gameInfo.winner} wins after {gameInfo.round} rounds!
             </h3>
           </div>
           <div>

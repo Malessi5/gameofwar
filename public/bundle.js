@@ -2207,7 +2207,7 @@ function GameInfo(props) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Turn__WEBPACK_IMPORTED_MODULE_1__["default"], {
       cards: turn,
       key: i,
-      turn: i + 1
+      turn: turn.round
     });
   }));
 }
@@ -2339,7 +2339,7 @@ function Main() {
     onClick: simulate
   }, "Simulate Game"), gameInfo && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", {
     className: "player-container"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h2", null, playerOne, " vs ", playerTwo), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h3", null, gameInfo.winner, " wins after ", gameInfo.moves.length + 1, " rounds!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_GameInfo__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h2", null, playerOne, " vs ", playerTwo), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("h3", null, gameInfo.winner, " wins after ", gameInfo.round, " rounds!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_3__.createElement(_GameInfo__WEBPACK_IMPORTED_MODULE_5__["default"], {
     moves: gameInfo.moves
   }))));
 }

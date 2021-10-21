@@ -134,7 +134,12 @@ class Game {
     const cardOne = this.playerOne.drawCard();
     const cardTwo = this.playerTwo.drawCard();
     if (cardOne && cardTwo) {
-      this.moves.push({p1Card: cardOne, p2Card: cardTwo, war: war});
+      this.moves.push({
+        p1Card: cardOne,
+        p2Card: cardTwo,
+        war: war,
+        round: this.round,
+      });
       console.log(
         "Round",
         this.round,

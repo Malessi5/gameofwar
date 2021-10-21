@@ -6,7 +6,7 @@ export default function GameInfo(props) {
   return (
     <div className='game-container'>
       {moves.map((turn, i) => {
-        return <Turn cards={turn} key={i} turn={i + 1} />;
+        return <Turn cards={turn} key={i} turn={turn.round} />;
       })}
     </div>
   );

@@ -61,7 +61,7 @@ There are two API endpoints:
 ```
 The game object will contain:
 - Both player objects which will include name and remaining cards.
-- moves: an array of every turn which include each card played.
+- moves: an array of every turn which include each card played and the round number.
 - winner: name of winner.
 - loser: name of loser
 - round: number of total rounds played.
