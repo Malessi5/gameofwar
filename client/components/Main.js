@@ -14,13 +14,11 @@ export default function Main() {
     setGameInfo(gameData);
     setPlayerOne(gameData.playerOne.name);
     setPlayerTwo(gameData.playerTwo.name);
-    console.log(gameData);
   }
 
   async function fetchWins() {
     let {data: wins} = await axios.get("/api/players");
     setPlayerWins(wins);
-    console.log(playerWins);
   }
 
   useEffect(() => {

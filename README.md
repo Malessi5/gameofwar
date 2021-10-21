@@ -1,11 +1,58 @@
-Create the PSQL DB
+# Game of War
 
-createdb war
+This project is based on the classic card game War and simulates a full game between two players.
 
-npm install
-npm run seed
-npm start
+## Technologies
 
-npm test to run tests
+This project was created with:
 
-deployed on Heroku: https://simulate-game-of-war.herokuapp.com/
+- PostgreSQL
+- Express.js
+- React.js
+- Node.js
+
+The project was also deployed on Heroku and can be viewed here: https://simulate-game-of-war.herokuapp.com/
+
+## Setup
+
+After cloning the repository and take the following steps:
+
+- Create a local Postgres database
+
+```
+$ createdb war
+```
+
+- Install dependencies
+
+```
+$ npm install
+```
+
+- Seed the database
+
+```
+$ npm run seed
+```
+
+- Start the server
+
+```
+$ npm start
+```
+
+- Go to `localhost:3000`
+
+## General Info
+
+### Endpoints
+
+There are two API endpoints:
+
+- `GET /api/war/` will start a game between 2 random players from the database and return a completed game object.
+
+- `GET /api/players` will return the lifetime wins for each player stored in the database.
+
+### Testing
+
+Tests can be ran with `npm test`

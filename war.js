@@ -5,10 +5,6 @@ class Card {
     this.value = value;
     this.cardName = `${this.num} of ${this.suit}`;
   }
-
-  show() {
-    return `${this.num} of ${this.suit}`;
-  }
 }
 
 class Deck {
@@ -32,7 +28,6 @@ class Deck {
       "K",
       "A",
     ];
-    // const allNums = ["2", "3", "4", "5", "6", "7"];
     const allValues = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
     const allSuits = ["hearts", "diamonds", "spades", "clubs"];
     for (let suit of allSuits) {
@@ -45,10 +40,6 @@ class Deck {
   add(card) {
     this.cards.push(card);
   }
-
-  // drawCard() {
-  //   return this.cards.pop();
-  // }
 
   shuffle() {
     let currentIndex = this.cards.length,
@@ -98,15 +89,13 @@ class Game {
     //Add players to the game
     this.addPlayers(playerOne, playerTwo);
 
-    //Create a new deck, it's card, and then shuffle them
+    //Create a new deck, generate cards, and then shuffle them
     this.deck = new Deck();
     this.deck.newDeck();
     this.deck.shuffle();
 
     //Deal cards to each player
     this.dealCards(this.deck.cards);
-
-    // console.log(this.playerOne, this.playerTwo);
   }
 
   addPlayers(p1, p2) {
@@ -160,17 +149,14 @@ class Game {
         this.playerTwo.addCards([...warCards, cardTwo, cardOne]);
       } else {
         console.log("War!");
-        warCards.push(cardOne);
-        warCards.push(cardTwo);
-        warCards.push(this.playerOne.drawCard());
-        warCards.push(this.playerTwo.drawCard());
+        warCards.push(cardOne, cardTwo);
+        warCards.push(this.playerOne.drawCard(), this.playerTwo.drawCard());
         this.playARound(warCards, true);
       }
     }
   }
 
   checkWinner() {
-    // console.log(this.playerOne.cards, this.playerTwo.cards);
     if (this.playerTwo.cards.length === 0) {
       this.winner = this.playerOne.name;
       this.loser = this.playerTwo.name;
