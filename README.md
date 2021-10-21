@@ -72,3 +72,10 @@ The game object will contain:
 ### Testing
 
 Tests can be ran with `npm test`
+
+### Where to go from here?
+
+- Ability to add or delete players from the database
+- Implement card pagination within UI
+- More stylized UI
+- Simulate games with more than 2 players
