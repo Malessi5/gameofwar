@@ -58,13 +58,14 @@ There are two API endpoints:
 
 - `GET /api/war/` will start a game between 2 random players from the database and return a completed game object.
 
+```
 The game object will contain:
-
 - Both player objects which will include name and remaining cards.
 - moves: an array of every turn which include each card played.
 - winner: name of winner.
 - loser: name of loser
 - round: number of total rounds played.
+```
 
 - `GET /api/players` will return the lifetime wins for each player stored in the database.
 
